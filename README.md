@@ -86,6 +86,7 @@ It shows:
 ## Tech Stack
 
 ### Machine Learning / Data Science
+
 - Python
 - Scikit-learn
 - Random Forest Classifier
@@ -94,6 +95,7 @@ It shows:
 - Deep Learning for plant disease detection
 
 ### Backend
+
 - Node.js
 - Express.js
 - MongoDB
@@ -101,11 +103,13 @@ It shows:
 - FastAPI for ML model serving
 
 ### Frontend
+
 - React.js
 - Vite
 - Tailwind CSS
 
 ### APIs
+
 - Data.gov.in Agmarknet API
 - Weather API
 
@@ -137,3 +141,146 @@ AgroVision AI
 │
 └── MongoDB Database
     └── Farmer profiles and application data
+```
+
+---
+
+## Machine Learning Model
+
+For crop recommendation, I used a Random Forest classifier.
+
+The model takes soil and environmental features as input and predicts the crop that is most suitable for the given conditions.
+
+Example input:
+
+```json
+{
+  "N": 90,
+  "P": 42,
+  "K": 43,
+  "temperature": 21,
+  "humidity": 82,
+  "ph": 6.5,
+  "rainfall": 200
+}
+```
+
+Example output:
+
+```json
+{
+  "recommended_crop": "rice",
+  "confidence": 92.4
+}
+```
+
+---
+
+## How to Run the Project
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Darshitsinh1718/AgroVision-AI.git
+cd AgroVision-AI
+```
+
+---
+
+### 2. Start Backend
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+Backend runs on:
+
+```text
+http://localhost:5000
+```
+
+---
+
+### 3. Start Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend runs on:
+
+```text
+http://localhost:5173
+```
+
+---
+
+### 4. Start ML Service
+
+```bash
+cd ML
+pip install -r requirements.txt
+uvicorn app:app --reload --port 8000
+```
+
+ML service runs on:
+
+```text
+http://localhost:8000
+```
+
+---
+
+## Environment Variables
+
+Create a `.env` file inside the backend folder.
+
+Example:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+DATA_GOV_API_KEY=your_data_gov_api_key
+ML_SERVICE_URL=http://localhost:8000
+```
+
+Do not push real `.env` files to GitHub.
+
+---
+
+## What I Learned
+
+While building this project, I learned:
+
+- How to train and use ML models in a real application
+- How to serve ML models using FastAPI
+- How to connect a Python ML service with a Node.js backend
+- How to use external APIs for live agricultural data
+- How to build authentication and farmer profile management
+- How to design a personalized dashboard using user data
+
+---
+
+## Future Improvements
+
+Some improvements I plan to add:
+
+- Improve crop disease detection accuracy with a larger dataset
+- Add more regional languages like Gujarati and Hindi
+- Add SMS or WhatsApp alerts for mandi prices and weather
+- Add crop yield prediction
+- Add fertilizer recommendation based on soil condition
+- Deploy the full system online
+
+---
+
+## Project Status
+
+This project is currently under active development.
+
+The main ML-based crop recommendation, disease detection workflow, farmer profile, dashboard, and mandi price modules are implemented.
