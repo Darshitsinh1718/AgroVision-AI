@@ -1,0 +1,32 @@
+# Environment — NEVER commit
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Uploads (user files — store on S3 in production)
+uploads/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Build
+dist/
+build/
+
+# Coverage
+coverage/
+.nyc_output/
